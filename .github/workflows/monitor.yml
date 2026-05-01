@@ -2,12 +2,14 @@ name: Website Monitor
 
 on:
   schedule:
-    - cron: '0 9 1 * *'  # Runs 1st of every month at 9am
-  workflow_dispatch:  # Allows you to run it manually too
+    - cron: '0 9 1 * *'
+  workflow_dispatch:
 
 jobs:
   monitor:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v3
       - name: Set up Python
